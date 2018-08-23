@@ -268,7 +268,7 @@ void *hugepage_map_guest_phys(struct vhm_vm *vm, u64 guest_phys, size_t size)
 err:
 	mutex_unlock(&vm->hugepage_lock);
 	printk(KERN_WARNING "cannot find correct mem map, please check the "
-		"input's range or alignment");
+		"input's range or alignment, vm id = %d, guest_phys = 0x%llx, size = 0x%llx", vm->vmid, guest_phys, size);
 	return NULL;
 }
 
